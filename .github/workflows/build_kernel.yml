@@ -1,0 +1,34 @@
+name: Build Kernel
+on:
+  push:
+    branches:    
+      - 12.1-alioth
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'version'
+        required: false
+        default: '1.0.0'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Init Repo
+      run: |
+        cd ~
+        git clone https://github.com/Blankeer/InfiniR_kernel_alioth -b 12.1-alioth --depth=1 
+    - name: Build With Shell
+      run: |
+        cd ~/InfiniR_kernel_alioth
+        bash build_full.sh
+    - name: Package With AnyKernel
+      run: |
+        cd ~/InfiniR_kernel_alioth
+        cd AnyKernel/
+        cp ../InfiniR_kernel_alioth/out/arch/arm64/boot/Image.gz-dtb  ./
+    - name : Upload artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: k40_blanke
+        path: /home/runner/AnyKernel/
