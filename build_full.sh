@@ -17,15 +17,18 @@ sudo apt install -y gcc g++ python make texinfo texlive bc bison build-essential
 # mv gcc-arm-9.2-2019.12-x86_64-aarch64-none-linux-gnu .gcc-arm-9.2-2019.12-x86_64-aarch64-none-linux-gnu
 
 echo "download lang-r445002"
-wget -q  https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/836b6c7f87c4c946d860ef664052282939a9bd31/clang-r445002.tar.gz -O "clang-r445002.tar.gz"
+mkdir clang-r445002
+wget  https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/836b6c7f87c4c946d860ef664052282939a9bd31/clang-r445002.tar.gz -O "clang-r445002.tar.gz"
 tar -xf clang-r445002.tar.gz -C clang-r445002
 
 echo "download aarch64-linux-android-4.9"
-wget -q https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-12.0.0_r15.tar.gz -O "gcc64.tar.gz"
+mkdir aarch64-linux-android-4.9
+wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/tags/android-12.0.0_r15.tar.gz -O "gcc64.tar.gz"
 tar -xf gcc64.tar.gz -C aarch64-linux-android-4.9
 
 echo "download arm-linux-androideabi-4.9"
-wget -q https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/tags/android-12.0.0_r15.tar.gz -O "gcc32.tar.gz"
+mkdir arm-linux-androideabi-4.9
+wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/tags/android-12.0.0_r15.tar.gz -O "gcc32.tar.gz"
 tar -xf gcc32.tar.gz -C arm-linux-androideabi-4.9
 
 
