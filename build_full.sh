@@ -51,7 +51,7 @@ make mrproper
 # args="-j$(nproc --all) O=out ARCH=arm64 SUBARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu-" 
 # args="-j64 O=out ARCH=arm64 SUBARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu-" 
 
-args="ARCH=arm64 SUBARCH=arm64 CC=../clang-r445002/bin/clang CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=../aarch64-linux-android-4.9/bin/aarch64-linux-android- CROSS_COMPILE_ARM32=../arm-linux-androideabi-4.9/bin/arm-linux-androideabi-"
+args="ARCH=arm64 SUBARCH=arm64 CC=/home/runner/clang-r445002/bin/clang CLANG_TRIPLE=aarch64-linux-gnu- CROSS_COMPILE=/home/runner/aarch64-linux-android-4.9/bin/aarch64-linux-android- CROSS_COMPILE_ARM32=/home/runner/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-"
 
 make -j$(nproc --all) ${args} O=out vendor/alioth_defconfig 
 make ${args} CONFIG_DEBUG_SECTION_MISMATCH=y
