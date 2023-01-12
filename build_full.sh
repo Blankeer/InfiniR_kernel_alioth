@@ -46,8 +46,11 @@ export SUBARCH=arm64
 #cp op5/anykernel.sh AnyKernel/
 
 cd InfiniR_kernel_alioth
-make clean 
-make mrproper 
+# make clean 
+# make mrproper 
+mkdir -p out
+make O=out clean
+
 # args="-j$(nproc --all) O=out ARCH=arm64 SUBARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu-" 
 # args="-j64 O=out ARCH=arm64 SUBARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu-" 
 
